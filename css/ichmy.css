@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+@import url(style.css)   screen and (min-width: 871px);
+@import url(tablet.css)  screen and (min-width: 641px) and (max-width: 870px);
+@import url(smart.css)   screen and (min-width: 481px) and (max-width: 640px);
+@import url(feature.css) screen and (max-width: 480px);
+@import url(style.css)   print,projection,tv;
+@import url(feature.css) handheld;
