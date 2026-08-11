@@ -1,0 +1,427 @@
+@charset "utf-8";
+
+/*
+ *  スマートフォン用ｃｓｓ全体共通の設定
+ */
+
+* {
+        margin:0px;
+        padding:0px;
+        line-height:                    150%;
+}
+
+body {
+        border:0px;
+        color:black;
+        background:white url('/images/handmadepaper.png') fixed;
+        text-align:                     center;
+        -webkit-text-size-adjust: 100%;
+}
+
+body,th,td,input,select,option {
+        font-size:12px;
+}
+i {
+        color:		red;
+}
+
+/*
+ *  段組みのための設定
+ *
+ *  段組みは以下のように設定する
+ *  +--------------------------------------+
+ *  |  header(ヘッドマーク表示用)          |
+ *  +--------------------------------------+
+ *  |  navigate(現在位置表示ガイダンス用)  |
+ *  +--------------------------------------+
+ *  |  main(コンテナ) |
+ *  |  +-------------+|
+ *  |  |maincol      ||
+ *  |  |(コンテンツ  ||
+ *  |  | 表示用)     ||
+ *  |  |     右寄せ→||
+ *  |  +-------------+|
+ *  |  +-----------+-+|
+ *  |  | leftcol   | ||
+ *  |  | (sidemenu | ||
+ *  |  |  表示用)  | ||
+ *  |  |  ←左寄せ |  ||
+ *  |  +-----------+--------+-------------+|
+ *  |  | footer(使用ソフトアイコン表示用) ||
+ *  |  +----------------------------------+|
+ *  +--------------------------------------+
+ */
+div.header {
+        width:100%;
+}
+div.navigate {
+        width:100%;
+        text-align:                     left;
+}
+div.main {
+        width:100%;
+        margin:1px;
+        text-align:                     left;
+}
+div.leftcol {
+        float: left;
+        width:200px;
+        margin:1px;
+        border:ridge blue;
+        text-align:                     left;
+}
+div.maincol {
+        float: right;
+        width:100%;
+        margin:1px;
+        text-align:                     left;
+}
+div.padding {
+        margin:1px;
+}
+div.footer {
+        width:100%;
+        clear:both;
+        text-align: center;
+}
+
+/*
+ *  表示制御
+ */
+.footer{
+        display:none;
+    }
+
+/*
+ *  共通スタイル
+ */
+h1 {
+        color: #000099;         /* 文字の色 */
+        padding-left: 10px;     /* 左の余白 */
+        border-width: 0px 0px 2px 10px; /* 枠の幅 */
+        border-style: solid;    /* 枠の種類 */
+        line-height: 200%;      /* 行の高さ */
+        border-color: orange;   /* 枠の色 */
+	margin-bottom: 0.5em;
+	font-size: 24px
+}
+
+pre
+{
+        font-size: 14px; 
+        background-color: aliceblue;
+        white-space: pre;
+        padding: 3px;
+        border-style: dashed;
+        border-color: Black;
+        border-width: 1px;
+        font-family: "Courier New";
+        scrollbar-base-color: Black;
+}
+.cli2 {margin-left:2em;}
+
+/*
+ *  カウンター表示用の設定
+ */
+.counter {
+  display: table-cell;
+  width: 11px;
+  height: 26px;
+  background: transparent url('/images/counter.png') -1000px -1000px no-repeat;
+  vertical-align: middle;
+  text-indent: -9000px;
+}
+.img0{ background-position: 0 0; width: 11px; height: 26px; } 
+.img1{ background-position: 0 -36px; width: 11px; height: 26px; } 
+.img2{ background-position: 0 -72px; width: 11px; height: 26px; } 
+.img3{ background-position: 0 -108px; width: 11px; height: 26px; } 
+.img4{ background-position: 0 -144px; width: 11px; height: 26px; } 
+.img5{ background-position: 0 -180px; width: 11px; height: 26px; } 
+.img6{ background-position: 0 -216px; width: 11px; height: 26px; } 
+.img7{ background-position: 0 -252px; width: 11px; height: 26px; } 
+.img8{ background-position: 0 -288px; width: 11px; height: 26px; } 
+.img9{ background-position: 0 -324px; width: 11px; height: 26px; } 
+.imgf{ background-position: 0 -360px; width: 5px; height: 26px; } 
+.imgh{ background-position: 0 -396px; width: 5px; height: 26px; } 
+/*
+ *  sidemenu 用の設定
+ */
+.leftcol ul{
+        margin:0 ;
+        padding:0 ;
+        padding-left:6px ;
+        padding-bottom:10px ;
+        list-style: circle url('/images/mk0614_i_r.gif') inside;
+}
+.leftcol li{
+        line-height:1.7;
+}
+.leftcol li a:hover{
+        background-color:white;
+}
+.leftcol h3{
+        margin:0;
+        padding:0;
+        padding-top:6px;
+        font-size: 12px;
+        text-indent: 20px;
+        text-decoration: none;
+        color:white;
+        height:20px;
+        background:transparent url(/images/bo-27.jpg) 0px 0 no-repeat;
+}
+.leftcol h3 a:link{
+        color:white;
+        text-decoration: none;
+}
+.leftcol h3 a:visited{
+        color:white;
+        text-decoration: none;
+}
+/*
+ *  footer 用の設定
+ */
+.feet {
+  display: table-cell;
+  width: 162px;
+  height: 64px;
+  background: transparent url('/images/footer.gif') -1000px -1000px no-repeat;
+  vertical-align: middle;
+  text-indent: -9000px;
+}
+.spf-apache{ background-position: 0 0; width: 259px; height: 32px; } 
+.spf-debian{ background-position: -269px 0; width: 125px; height: 50px; } 
+.spf-freebsd{ background-position: -404px 0; width: 171px; height: 64px; } 
+.spf-mail{ background-position: -585px 0; width: 231px; height: 18px; } 
+.spf-php{ background-position: -826px 0; width: 88px; height: 31px; } 
+.spf-plugcomputer{ background-position: -924px 0; width: 162px; height: 64px; } 
+.spf-postgresql{ background-position: -1096px 0; width: 80px; height: 66px; } 
+.spf-smarty{ background-position: -1186px 0; width: 88px; height: 31px; } 
+
+.footer li {
+        list-style-type: none; /* 先頭記号を消す */
+        float: left;     /* リスト項目を横方向に並べる */
+        margin: 0px 1px; /* 各項目周囲の余白 */
+        padding: 0px;    /* 枠線と内容の距離 */
+}
+
+.footer p{
+        clear: both;
+        text-align: center;
+}
+
+/*
+ *  トップページ用の設定
+ */
+div.toppage {
+        font-size:14px;
+}
+div.toppage h3 {
+        color: #000099;        /* 文字の色 */
+        padding-left: 10px;    /* 左の余白 */
+        border-width: 0px 0px 2px 10px;  /* 枠の幅 */
+        border-style: solid;   /* 枠の種類 */
+        border-color: #9999ff; /* 枠の色 */
+        line-height: 130%;     /* 行の高さ */
+}
+div.tophist {
+	overflow:     auto;
+        width:        470px;
+        height:       120px;
+        font-size:    10px;
+}
+table.tophist {
+        text-align:             left;
+        border-top:             1px solid #663300;
+        border-left:            1px solid #663300;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        border-collapse:        collapse;
+        border-spacing:         0;
+        empty-cells:            show;
+}
+table.tophist caption {
+        font-size:12px;
+        caption-sid:            top;
+}
+table.tophist th {
+        text-align:             left;
+        font-size:12px;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        background-color:       #ccccff; /* ?طʿ? */
+        padding:                0em 1em;
+}
+table.tophist td {
+        font-size:              12px;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        padding:                1px;
+}
+/*
+ *  資格とるぞのこーなー用の設定
+ */
+div.licdat   {
+        font-size:14px;
+}
+
+div.licdat h3 {
+        color: #000099; /* 文字の色 */
+        padding-left: 10px; /* 左の余白 */
+        border-width: 0px 0px 2px 10px; /* 枠の幅 */
+        border-style: solid; /* 枠の種類 */
+        border-color: #9999ff; /* 枠の色 */
+        line-height: 130%; /* 行の高さ */
+}
+
+table.licdat {
+        empty-cells:            show;
+        text-align: left;
+        border-collapse:        separate; 
+        border-top:             1px solid #663300;
+        border-left:            1px solid #663300;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        border-spacing:         0;
+        margin:                 10px auto;
+}
+table.licdat th {
+        font-size:14px;
+        text-align:             left;
+        border-top:             1px solid #663300;
+        border-left:            1px solid #663300;
+        background-color:       #ccccff; /* 背景色 */
+        padding:                2px 5px; 
+        line-height:            1.3; 
+}
+table.licdat td {
+        font-size:              13px;
+        border-top:             1px solid #663300;
+        border-left:            1px solid #663300;
+        padding:                2px 5px; 
+}
+/*
+ *  ＯＳ伝説で遊ぼうのこーなー用の設定
+ *   */
+div.virtual {
+        text-align:                     left;
+        font-size:14px;
+}
+div.virtual h2 {
+        color: #000099; /* 文字の色 */
+        padding-left: 10px; /* 左の余白 */
+        border-width: 0px 0px 2px 10px; /* 枠の幅 */
+        border-style: solid; /* 枠の種類 */
+        border-color: #9999ff; /* 枠の色 */
+        line-height: 130%; /* 行の高さ */
+        font-size: 16px
+}
+div.virtual h3 {
+        font-size: 14px
+}
+div.virtual h4 {
+        padding-left: 1em; /* 左の余白 */
+        font-size: 14px
+}
+div.virtual p{
+        clear: both;
+        text-align: left;
+        padding-left: 1em; /* 左の余白 */
+}
+div.virtual ul {
+        padding:3px 15px 0 10px;
+        margin:0;
+}
+div.virtual li {
+        list-style:none;
+        text-indent:-1em;
+        padding:0 0 0.1em 1em;
+        line-height:1.2em;}
+*.tips
+{
+        float: left;
+        margin-right: 1em;
+}
+*.tips img{
+        width:           31;
+        border:           0;
+}
+*.float
+{
+        float: right;
+        margin-right: 0em;
+}
+*.floatclear
+{
+        clear: both;
+}
+table.virtual {
+        text-align:             left;
+        border-top:             1px solid #663300;
+        border-left:            1px solid #663300;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        border-collapse:        collapse;
+        border-spacing:         0;
+        empty-cells:            show;
+}
+table.virtual caption {
+        font-size:14px;
+        caption-sid:            top;
+}
+table.virtual th {
+        text-align:             left;
+        font-size:14px;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        background-color:       #ccccff;  /* 背景色 */
+        padding:                0em 1em;
+}
+table.virtual td {
+        font-size:              14px;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        padding:                1px;
+}
+/*
+ *  sevilla用の設定
+ *   */
+table.sevilla {
+        text-align:             left;
+        border-top:             1px solid #663300;
+        border-left:            1px solid #663300;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        border-collapse:        collapse;
+        border-spacing:         0;
+        empty-cells:            show;
+}
+table.sevilla caption {
+        font-size:14px;
+        caption-sid:            top;
+}
+table.sevilla th {
+        text-align:             left;
+        font-size:14px;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        background-color:       #ccccff;  /* 背景色 */
+        padding:                2px 5px; 
+}
+table.sevilla td {
+        font-size:              13px;
+        border-left:            1px solid #663300;
+        border-right:           1px solid #663300;
+        border-bottom:          1px solid #663300;
+        padding:                2px 5px; 
+}
+.a1{ 
+        font-size:              16px;
+        font-weight:            bold;
+        color: #008000 /* 文字の色 */
+} 
+.a2{ 
+        font-size:              16px;
+        font-weight:            bold;
+        color: #ff0000 /* 文字の色 */
+} 
