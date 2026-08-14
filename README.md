@@ -24,7 +24,7 @@ $ git clone https://github.com/ichmy55/ichmy55.github.io.git
 └── index.html ...............本文HTMLファイル
 </pre>
 
-## Usage
+## テスト表示方法
 本ファイルをローカルでテストするために、ローカルにてApacheサーバーを立ち上げます
 make一発で,docker環境の生成,docker環境へのソース転送,結果表示まで自動でやります．
 表示は　http://localhost:8080 で表示します
