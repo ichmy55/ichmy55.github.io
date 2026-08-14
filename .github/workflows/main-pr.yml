@@ -1,0 +1,9 @@
+name: main-pull request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # 現時点では空

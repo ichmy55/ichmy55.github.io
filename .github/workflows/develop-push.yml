@@ -1,0 +1,9 @@
+name: Build the PDF at push to development
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  # 現時点では空

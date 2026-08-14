@@ -1,0 +1,43 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: ":boom: 破壊的更新"
+    labels:
+      - ':boom: 破壊的更新'
+  - title: ":sparkles: 機能追加"
+    labels:
+      - ':sparkles: 機能追加'
+  - title: ":adhesive_bandage: 小修整"
+    labels:
+      - ':adhesive_bandage: 小修整'
+  - title: ":bug: ソフトの不具合"
+    labels:
+      - '":bug: ソフトの不具合"'
+  - title: ":recycle:リファクタリング"
+    labels:
+      - ':recycle:リファクタリング'
+  - title: ":green_heart: CI/CD"
+    labels:
+      - ':green_heart: CI/CD'
+  - title: ":book:ドキュメント"
+    labels:
+      - ':book:ドキュメント'
+  - title: ":wrench:その他"
+    labels:
+      - "*"
+version-resolver:
+  major:
+    labels:
+      - ':boom: 破壊的更新'
+  minor:
+    labels:
+      - ':sparkles: 機能追加'
+  patch:
+    labels:
+      - 'patch'
+  default: "patch"
+
+template: |
+  ## Changes
+
+  $CHANGES
