@@ -8,7 +8,7 @@
 ## Installation
 適当な作業ディレクトリを作成し,本ソースをcloneしてください.
 ```
-$ git clone https://github.com/ichmy55/ichmy55.github.io.git
+$ git clone   --recursive https://github.com/ichmy55/ichmy55.github.io.git
 ```
 
 ## Directory tree
@@ -29,13 +29,9 @@ $ git clone https://github.com/ichmy55/ichmy55.github.io.git
 make一発で,docker環境の生成,docker環境へのソース転送,結果表示まで自動でやります．
 表示は　http://localhost:8080 で表示します
 
-<!-- ## Textlint -->
-<!-- textlint-disable prh -->
-<!-- 本リポジトリで使用する自動校正にて使用するルールは [リンク先](src/docs/Textlint.md)にて説明しています -->
-<!-- textlint-enable prh -->
-
 ## CI/CD
 本リポジトリで使用するCI/CDにて使用するルールは [リンク先](markdown/CICD.md)にて説明しています
+本リポジトリで使用する自動校正にて使用するルールは [リンク先](markdown/Textlint.md)にて説明しています
 
 ## Author
 
