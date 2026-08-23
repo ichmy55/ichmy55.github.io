@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "html"
+  ],
+  "filters": {
+    "comments": true
+  },
+  "rules": {
+      "preset-ja-spacing": true,
+      "prh": {
+        "rulePaths": [
+          "commons1/rules/prh.yml"
+        ]
+      }
+  }
+}
