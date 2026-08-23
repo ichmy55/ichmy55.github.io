@@ -1,7 +1,7 @@
 name: Build the PDF at push to development
 
 on:
-  push:
+  pull_request:
     branches:
       - development
 
