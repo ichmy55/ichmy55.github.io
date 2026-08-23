@@ -19,7 +19,7 @@ RUN npm install -g textlint textlint-plugin-html textlint-rule-preset-japanese t
 # textlint環境を作成します.
 #
 ARG USERNAME=www-data
-ARG GROUPNAME=www-data
+ARG GROUPNAME=www-data 
 USER $USERNAME 
 WORKDIR /usr/local/apache2/htdocs/
 ENV PATH=/home/$USERNAME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja LC_ALL=ja_JP.UTF-8 TERM=xterm CONTAINER_ENV=true
