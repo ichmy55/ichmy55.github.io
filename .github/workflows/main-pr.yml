@@ -6,4 +6,5 @@ on:
       - main
 
 jobs:
-  # 現時点では空
+  textlint-reviewdog:
+    uses: ./.github/workflows/textlint-reviewdog.yml
