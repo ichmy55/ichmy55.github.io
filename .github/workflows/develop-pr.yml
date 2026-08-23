@@ -1,9 +1,13 @@
-name: Build the PDF at push to development
+name: testlint at PR to development
 
 on:
   pull_request:
     branches:
       - development
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   textlint-reviewdog:
