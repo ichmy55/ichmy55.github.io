@@ -11,5 +11,8 @@ permissions:
   pull-requests: write
 
 jobs:
+  package-httpd:
+    uses: ./.github/workflows/package-httpd.yml
+
   release-drafter:
     uses: ./.github/workflows/release-drafter.yml
