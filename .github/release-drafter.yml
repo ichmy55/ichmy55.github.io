@@ -2,40 +2,37 @@ name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: ":boom: 破壊的更新"
-    labels:
-      - ':boom: 破壊的更新'
+    semver-increment: "major"
+    when:
+      label: ":boom: 破壊的更新"
   - title: ":sparkles: 機能追加"
-    labels:
-      - ':sparkles: 機能追加'
+    semver-increment: "minor"
+    when:
+      label: ":sparkles: 機能追加"
   - title: ":adhesive_bandage: 小修整"
-    labels:
-      - ':adhesive_bandage: 小修整'
+    semver-increment: "patch"
+    when:
+      label: ":adhesive_bandage: 小修整"
   - title: ":bug: ソフトの不具合"
-    labels:
-      - '":bug: ソフトの不具合"'
+    semver-increment: "patch"
+    when:
+      label: ":bug: ソフトの不具合"
   - title: ":recycle:リファクタリング"
-    labels:
-      - ':recycle:リファクタリング'
+    semver-increment: "patch"
+    when:
+      label: ":recycle:リファクタリング"
   - title: ":green_heart: CI/CD"
-    labels:
-      - ':green_heart: CI/CD'
+    semver-increment: "patch"
+    when:
+      label: ":green_heart: CI/CD"
   - title: ":book:ドキュメント"
-    labels:
-      - ':book:ドキュメント'
+    semver-increment: "patch"
+    when:
+      label: ":book:ドキュメント"
   - title: ":wrench:その他"
-    labels:
-      - "*"
-version-resolver:
-  major:
-    labels:
-      - ':boom: 破壊的更新'
-  minor:
-    labels:
-      - ':sparkles: 機能追加'
-  patch:
-    labels:
-      - 'patch'
-  default: "patch"
+    semver-increment: "patch"
+    when:
+      label: "*"
 
 template: |
   ## Changes
