@@ -15,11 +15,9 @@ DOCKER := docker
 # Makefileのファイル名
 HELPFILE := $(MAKEFILE_LIST)
 #
-# Docker コマンドマクロ
+# プロジェクト毎設定の読み込み
 #
-DOCKER_IMAGE  := httpd
-DOCKER_NAME   := httpd
-PACKAGE_USE   := 0              # 出来合いパッケージを使用するには"1"をセット
+include variables.mk
 #
 # ソースファイル一覧
 #
