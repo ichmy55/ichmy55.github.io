@@ -70,10 +70,10 @@ ps: ## コンテナを確認します
 	@$(DOCKER) ps -a
 #
 bash: ## コンテナへログインします
-	@$(DOCKER) exec -it $(DOCKER_NAME) /bin/bash
+	@$(DOCKER) exec -it -u builder $(DOCKER_NAME) /bin/bash
 #
 remotelint: ## コンテナ環境にてhtmlをLintにかけます
-	@$(DOCKER) exec -it $(DOCKER_NAME) make lint
+	@$(DOCKER) exec -it -u 1000:1000 $(DOCKER_NAME) make lint
 #
 local-lint: ## ローカル環境下でhtmlをlintにかけます
 	npx textlint -f pretty-error $(SRCS) $(DOCS)

@@ -16,11 +16,14 @@ RUN apt -y install nodejs npm
 RUN npm install -g textlint textlint-plugin-html textlint-rule-preset-japanese textlint-rule-preset-ja-spacing textlint-filter-rule-comments textlint-rule-prh
 
 #
-# textlint環境を作成します.
+# 環境設定
 #
-ARG USERNAME=www-data
-ARG GROUPNAME=www-data 
-USER $USERNAME 
+# 内部での作業は一般ユーザー「builder」にて実施
+#
+ENV UNAME=builder
+ENV GID=1000
+ENV UID=1000
+RUN groupadd -g $GID -o $UNAME
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
+#RUN echo "$UNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers # sudoが必要な時は生かす
 WORKDIR /usr/local/apache2/htdocs/
-ENV PATH=/home/$USERNAME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja LC_ALL=ja_JP.UTF-8 TERM=xterm CONTAINER_ENV=true
-ENTRYPOINT ["sleep", "infinity"]
