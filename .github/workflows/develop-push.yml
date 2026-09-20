@@ -7,6 +7,6 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - run: echo "This is a placeholder workflow."
