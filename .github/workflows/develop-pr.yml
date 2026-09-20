@@ -1,4 +1,4 @@
-name: testlint at PR to development
+name: develop pull request
 
 on:
   pull_request:
@@ -10,5 +10,5 @@ permissions:
   pull-requests: write
 
 jobs:
-  textlint-reviewdog:
-    uses: ./.github/workflows/textlint-reviewdog.yml
+  ci:
+    uses: ./.github/workflows/ci.yml
