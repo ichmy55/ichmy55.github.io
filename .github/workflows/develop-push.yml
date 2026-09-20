@@ -5,8 +5,9 @@ on:
     branches:
       - development
 
+permissions:
+  contents: read
+
 jobs:
-  build:
-    runs-on: ubuntu-26.04
-    steps:
-      - run: echo "This is a placeholder workflow."
+  ci:
+    uses: ./.github/workflows/ci.yml
