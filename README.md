@@ -1,5 +1,10 @@
 # 低予算ＣＡＥで遊ぼうのこーなー
 
+[![Build Status](https://github.com/ichmy55/ichmy55.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ichmy55/ichmy55.github.io/actions)
+[![GitHub release](https://img.shields.io/github/release/ichmy55/ichmy55.github.io.svg)](https://GitHub.com/ichmy55/ichmy55.github.io/releases/)
+[![made-with-smarty](https://img.shields.io/badge/Made%20with-Smarty-1f425f.svg)](https://www.smarty.net/docsv2/ja/)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+
 ## Overview
 こちらはichmy55のサーバーgithub出張所の“低予算ＣＡＥで遊ぼうのこーなー”を公開するためのリポジトリです.<br>
 本サイトの内容に、不具合などあった場合に気軽にコメントいただけるよう、ソースを公開します<br>
