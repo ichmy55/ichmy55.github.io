@@ -1,5 +1,5 @@
 #
-# textlintする環境をDocker上に作成する
+# apacheをテストする環境をDocker上に作成する
 #
 FROM httpd:2.4
 
@@ -12,6 +12,7 @@ RUN apt update
 RUN apt -y upgrade
 RUN apt -y install locales-all
 RUN apt -y install sudo make vim
+RUN apt -y install php smarty4
 RUN apt -y install nodejs npm
 RUN npm install -g textlint textlint-plugin-html textlint-rule-preset-japanese textlint-rule-preset-ja-spacing textlint-filter-rule-comments textlint-rule-prh
 
@@ -23,7 +24,8 @@ RUN npm install -g textlint textlint-plugin-html textlint-rule-preset-japanese t
 ENV UNAME=builder
 ENV GID=1000
 ENV UID=1000
+ENV APACHE_DOCUMENT_ROOT=/home/builder/html/
 RUN groupadd -g $GID -o $UNAME
 RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
-#RUN echo "$UNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers # sudoが必要な時は生かす
-WORKDIR /usr/local/apache2/htdocs/
+RUN echo "$UNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers # sudoが必要な時は生かす
+WORKDIR /home/builder/
