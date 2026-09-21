@@ -1,8 +1,8 @@
 # 低予算ＣＡＥで遊ぼうのこーなー
 
-[![Build Status](https://github.com/ichmy55/ichmy55.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ichmy55/ichmy55.github.io/actions)
+[![Build Status](https://github.com/ichmy55/ichmy55.github.io/actions/workflows/main-push.yml/badge.svg)](https://github.com/ichmy55/ichmy55.github.io/actions)
 [![GitHub release](https://img.shields.io/github/release/ichmy55/ichmy55.github.io.svg)](https://GitHub.com/ichmy55/ichmy55.github.io/releases/)
-[![made-with-smarty](https://img.shields.io/badge/Made%20with-Smarty-1f425f.svg)](https://www.smarty.net/docsv2/ja/)
+[![made-with-smarty](https://img.shields.io/badge/Made%20with-Smarty-efc143.svg)](https://www.smarty.net/docsv2/ja/)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 ## Overview
