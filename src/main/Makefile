@@ -48,10 +48,10 @@ up: ## コンテナを初期化します
 	make down
 	if [ $(PACKAGE_USE) -eq 1 ]; then
 	  $(DOCKER) pull $(DOCKER_IMAGE)
-	  $(DOCKER) run -d -p 8080:80 -v $(PWD):/usr/local/apache2/htdocs/ --name $(DOCKER_NAME) $(DOCKER_IMAGE)
+	  $(DOCKER) run -d -p 8080:80  -v $(PWD)/html:/usr/local/apache2/htdocs/ -v $(PWD):/home/builder/ --name $(DOCKER_NAME) $(DOCKER_IMAGE)
 	else
-	  $(DOCKER) build . -t $(DOCKER_NAME)
-	  $(DOCKER) run -d -p 8080:80 -v $(PWD):/usr/local/apache2/htdocs/ --name $(DOCKER_NAME) $(DOCKER_IMAGE)
+	  $(DOCKER) build . -t $(DOCKER_IMAGE_LOCAL)
+	  $(DOCKER) run -d -p 8080:80 -v $(PWD)/html:/usr/local/apache2/htdocs/ -v $(PWD):/home/builder/ --name $(DOCKER_NAME)  $(DOCKER_IMAGE_LOCAL)
 	fi
 #
 up-package: ## コンテナを初期化します（出来合いのパッケージを使います）
@@ -71,7 +71,7 @@ bash: ## コンテナへログインします
 	@$(DOCKER) exec -it -u builder $(DOCKER_NAME) /bin/bash
 #
 remotelint: ## コンテナ環境にてhtmlをLintにかけます
-	@$(DOCKER) exec -it -u 1000:1000 $(DOCKER_NAME) make lint
+	@$(DOCKER) exec -it -u builder $(DOCKER_NAME) make lint
 #
 local-lint: ## ローカル環境下でhtmlをlintにかけます
 	npx textlint -f pretty-error $(SRCS) $(DOCS)
