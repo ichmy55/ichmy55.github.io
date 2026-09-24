@@ -48,10 +48,10 @@ up: ## コンテナを初期化します
 	make down
 	if [ $(PACKAGE_USE) -eq 1 ]; then
 	  $(DOCKER) pull $(DOCKER_IMAGE)
-	  $(DOCKER) run -d -p 8080:80  -v $(PWD)/html:/usr/local/apache2/htdocs/ -v $(PWD):/home/builder/ --name $(DOCKER_NAME) $(DOCKER_IMAGE)
+	  $(DOCKER) run -d -p 8080:80  -v $(PWD)/htdocs:/usr/local/apache2/htdocs/ -v $(PWD):/home/builder/ --name $(DOCKER_NAME) $(DOCKER_IMAGE)
 	else
 	  $(DOCKER) build . -t $(DOCKER_IMAGE_LOCAL)
-	  $(DOCKER) run -d -p 8080:80 -v $(PWD)/html:/usr/local/apache2/htdocs/ -v $(PWD):/home/builder/ --name $(DOCKER_NAME)  $(DOCKER_IMAGE_LOCAL)
+	  $(DOCKER) run -d -p 8080:80 -v $(PWD)/htdocs:/usr/local/apache2/htdocs/ -v $(PWD):/home/builder/ --name $(DOCKER_NAME)  $(DOCKER_IMAGE_LOCAL)
 	fi
 #
 up-package: ## コンテナを初期化します（出来合いのパッケージを使います）
@@ -75,3 +75,12 @@ remotelint: ## コンテナ環境にてhtmlをLintにかけます
 #
 local-lint: ## ローカル環境下でhtmlをlintにかけます
 	npx textlint -f pretty-error $(SRCS) $(DOCS)
+#
+# ローカルでのビルド関連ターゲット
+#
+localclean: ## ローカル環境の不要ファイルを消す
+	rm -rf  htdocs/* .bash_history; cp src/main/index.html htdocs
+#
+localup:
+	cp -rL src/css htdocs/
+	cp -rL src/images htdocs/
