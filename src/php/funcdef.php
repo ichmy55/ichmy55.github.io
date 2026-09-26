@@ -8,7 +8,7 @@
 function navistring( $st1, $sectiondef)
 {
     $kek = '&gt; <a href="/' . $st1;
-    $kek .= '/">' . $sectiondef[ $st1 ]['jtitle'] . '</a>';
+    $kek .= '.html">' . $sectiondef[ $st1 ]['jtitle'] . '</a>';
     if ($sectiondef[ $st1 ]['parent'] != '') {
        $kek =  navistring( $sectiondef[ $st1 ]['parent'] ,
 	                   $sectiondef) . $kek;
