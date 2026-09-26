@@ -1,10 +1,10 @@
 <h3><a href="/">低予算ＣＡＥで遊ぼうのこーなー</a></h3>
     <ul>
         <li>
-           <a href="/">低予算ＣＡＥで遊ぼうのこーなー</a><br>
+           <a href="/index.html">低予算ＣＡＥで遊ぼうのこーなー</a><br>
         </li>
         <li>
-            <a href="/whatsnew/">更新履歴のこーなー</a>
+            <a href="/whatsnew.html">更新履歴のこーなー</a>
         </li>
         <p>-- ＯＳ伝説の紹介</p>
       </ul>
