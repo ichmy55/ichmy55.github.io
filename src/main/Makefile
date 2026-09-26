@@ -123,10 +123,12 @@ local-lint: ## ローカル環境下でlatexをlintにかけます
 	npx textlint -f pretty-error README.md $(SRCS) $(DOCS)
 #
 localclean: ## ローカル環境の不要ファイルを消し、再度Up
+	mkdir -p htdocs smarty
 	rm -rf  htdocs/* .bash_history smarty/*; cp src/main/index.html htdocs ; ln -s ../src/templates smarty
 	cp -rL src/css htdocs/
 	cp -rL src/images htdocs/
 	cp VERSION.txt  htdocs/
 
 localdistclean: ## ローカル環境の不要ファイルを消す
+	mkdir -p htdocs smarty
 	rm -rf  htdocs/* smarty/* .viminfo .bash_history
