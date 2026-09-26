@@ -21,10 +21,10 @@ include variables.mk
 #
 # ソースファイル一覧
 #
-SRCDIR   := src
-SRCDIR2  := markdown
-SRCS     := index.html $(wildcard  $(SRCDIR)/*.html)
-DOCS     := README.md  $(wildcard  $(SRCDIR2)/*.md)
+SRCDIR   := src/templates
+SRCDIR2  := src/markdown
+SRCS     := $(wildcard  $(SRCDIR)/*.tpl)
+DOCS     := README.md $(wildcard  $(SRCDIR2)/*.md)
 #
 # Makefile内で使用するshellを定義
 SHELL=/bin/bash

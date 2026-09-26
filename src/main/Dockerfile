@@ -20,6 +20,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     nodejs=20.19.* \
     npm=9.2.* \
     git=1:2.* \
+    curl=8.* \
   && rm -rf /var/lib/apt/lists/* \
   && npm install -g textlint@15.8.0 \
         textlint-plugin-html@1.0.1 \
@@ -27,6 +28,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
         textlint-rule-preset-ja-spacing@3.0.3 \
         textlint-filter-rule-comments@1.3.0 \
         textlint-rule-prh@6.1.0 \
+  && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/fd59714416d6d9a1c0692d872e38e7f8448df4fc/install.sh | sh -s -- -b /usr/local/bin \
   && sed -i 's/;include_path = ".:\/usr\/share\/php"/include_path = ".:\/usr\/share\/php:\/usr\/share\/php\/smarty4"/' /etc/php/8.4/cli/php.ini
 #
 # 環境設定
