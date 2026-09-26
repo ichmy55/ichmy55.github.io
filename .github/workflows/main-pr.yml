@@ -10,5 +10,13 @@ permissions:
   pull-requests: write
 
 jobs:
-  ci:
-    uses: ./.github/workflows/ci.yml
+  actionlint-reviewdog:
+    uses: ./.github/workflows/actionlint-reviewdog.yml
+  hadolint-reviewdog:
+    uses: ./.github/workflows/hadolint-reviewdog.yml
+  checkmake-action:
+    uses: ./.github/workflows/checkmake-action.yml
+  textlint-reviewdog:
+    uses: ./.github/workflows/textlint-reviewdog.yml
+  test-build:
+    uses: ./.github/workflows/test-build.yml
