@@ -5,7 +5,7 @@
 #
 # ターゲット一覧
 #
-.PHONY: help up up-package stop down ps bash lint remotelint local-lint
+.PHONY: help up up-package stop down ps bash build lint clean distclean remotebuild remotelint remoteclean remotedistclean localbuild local-lint localclean localdistclean
 .DEFAULT_GOAL := help
 #
 # Docker コマンドマクロ
