@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-26.04
+    container:
+      image : ghcr.io/ichmy55/ichmy55.github.io/httpd:main
+    steps:
+      - name: checkout
+        uses: actions/checkout@v7
+        with:
+          submodules: true
+      - name: Build static site
+        run: |
+          make localbuild
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./htdocs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

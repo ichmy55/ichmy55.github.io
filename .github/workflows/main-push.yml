@@ -11,11 +11,12 @@ permissions:
   pull-requests: write
 
 jobs:
-  ci:
-    uses: ./.github/workflows/ci.yml
-
   package-httpd:
     uses: ./.github/workflows/package-httpd.yml
 
   release-drafter:
+    uses: ./.github/workflows/release-drafter.yml
+
+  deploy:
+    needs: [package-httpd,release-drafter]
     uses: ./.github/workflows/release-drafter.yml
