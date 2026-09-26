@@ -19,6 +19,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     smarty4=4.5.* \
     nodejs=20.19.* \
     npm=9.2.* \
+    git=1:2.* \
   && rm -rf /var/lib/apt/lists/* \
   && npm install -g textlint@15.8.0 \
         textlint-plugin-html@1.0.1 \
