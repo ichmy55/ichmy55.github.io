@@ -19,4 +19,4 @@ jobs:
 
   deploy:
     needs: [package-httpd,release-drafter]
-    uses: ./.github/workflows/release-drafter.yml
+    uses: ./.github/workflows/deploy.yml
