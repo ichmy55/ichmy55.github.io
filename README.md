@@ -6,9 +6,9 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 ## Overview
-こちらはichmy55のサーバーgithub出張所の“低予算ＣＡＥで遊ぼうのこーなー”を公開するためのリポジトリです.<br>
+こちらはichmy55のサーバGitHub出張所の“低予算ＣＡＥで遊ぼうのこーなー”を公開するためのリポジトリです.<br>
 本サイトの内容に、不具合などあった場合に気軽にコメントいただけるよう、ソースを公開します<br>
-本サイトは,[github出張所](https://ichmy55.github.io/) にて公開しています.
+本サイトは,[github出張所](https://ichmy55.github.io/)にて公開しています.
 
 ## Installation
 適当な作業ディレクトリを作成し,本ソースをcloneしてください.
@@ -30,18 +30,18 @@ $ git clone   --recursive https://github.com/ichmy55/ichmy55.github.io.git
 </pre>
 
 ## テスト表示方法
-本ファイルをローカルでテストするために、ローカルにてApacheサーバーを立ち上げます
+本ファイルをローカルでテストするために、ローカルにてApacheサーバを立ち上げます
 make一発で,docker環境の生成,docker環境へのソース転送,結果表示まで自動でやります．
-表示は　http://localhost:8080 で表示します
+表示はhttp://localhost:8080で表示します
 
 ## CI/CD
-本リポジトリで使用するCI/CDにて使用するルールは [リンク先](markdown/CICD.md)にて説明しています
-本リポジトリで使用する自動校正にて使用するルールは [リンク先](markdown/Textlint.md)にて説明しています
+本リポジトリで使用するCI/CDにて使用するルールは[リンク先](markdown/CICD.md)にて説明しています
+本リポジトリで使用する自動校正にて使用するルールは[リンク先](markdown/Textlint.md)にて説明しています
 
 ## Author
 
 [ichmy55](https://github.com/ichmy55)
 
 ## Licence
-"低予算ＣＡＥで遊ぼうのこーなー" の各ソースコードは [MIT license](https://ja.wikipedia.org/wiki/MIT_License) で配布します.  
+"低予算ＣＡＥで遊ぼうのこーなー" の各ソースコードは[MIT license](https://ja.wikipedia.org/wiki/MIT_License)で配布します.  
 また,このコードで生成されたファイルは,[クリエイティブ・コモンズ・ライセンス](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%83%BB%E3%82%B3%E3%83%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)表示4.0国際で配布します.

@@ -28,7 +28,7 @@
 | package-textcomp.yml  | textlint実行用のDocker imageを生成します          |                  |           | (※注1)     |
 | release-drafter.yml    | リリースを作成し、バージョンを更新します         |                  |           | 〇         |
 
-(※注1)：本レポジトリでDockerfileが変更されたときのみ走ります.
+(※注1)：本リポジトリでDockerfileが変更されたときのみ走ります.
 
 (3) 設定ファイル  
 上記実施に必要な設定ファイルは,以下に記載しています.  
