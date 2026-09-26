@@ -11,6 +11,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-26.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     container:
       image : ghcr.io/ichmy55/ichmy55.github.io/httpd:main
     steps:
@@ -28,11 +31,6 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./htdocs
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-26.04
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
