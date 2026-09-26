@@ -6,7 +6,7 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 ## Overview
-こちらはichmy55のサーバGitHub出張所の“低予算ＣＡＥで遊ぼうのこーなー”を公開するためのリポジトリです.<br>
+こちらはichmy55のサーバーGitHub出張所の“低予算ＣＡＥで遊ぼうのこーなー”を公開するためのリポジトリです.<br>
 本サイトの内容に、不具合などあった場合に気軽にコメントいただけるよう、ソースを公開します<br>
 本サイトは,[github出張所](https://ichmy55.github.io/)にて公開しています.
 
