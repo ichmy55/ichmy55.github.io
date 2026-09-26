@@ -8,7 +8,7 @@
 //
     $section_def = array(
         "index" => array(
-            "headmark" => "virtualPC",
+            "headmark" => "toppage",
             "title"    => "Ichmy's regend of OS",
             "jtitle"   => "低予算ＣＡＥで遊ぼうのこーな",
 	    "jtitle2"  => "ごめんなさい。まだ工事中です",

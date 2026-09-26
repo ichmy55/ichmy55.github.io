@@ -35,13 +35,6 @@ help: ## ヘルプを表示する
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(HELPFILE) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 #
-lint: ## latexをLintにかけます(環境は自動判別)
-ifndef CONTAINER_ENV
-	make remotelint
-else
-	make local-lint
-endif
-#
 # Docker compose 制御ターゲット
 #
 up: ## コンテナを初期化します
@@ -63,6 +56,7 @@ stop: ## コンテナを停止します
 #
 down: ## コンテナを停止し，upで作成したコンテナ，ネットワーク，ボリューム，イメージを削除
 	@$(DOCKER) rm -f  $(DOCKER_NAME)
+	make clean
 #
 ps: ## コンテナを確認します
 	@$(DOCKER) ps -a
@@ -70,17 +64,69 @@ ps: ## コンテナを確認します
 bash: ## コンテナへログインします
 	@$(DOCKER) exec -it -u builder $(DOCKER_NAME) /bin/bash
 #
-remotelint: ## コンテナ環境にてhtmlをLintにかけます
-	@$(DOCKER) exec -it -u builder $(DOCKER_NAME) make lint
+# 現在Docker内か外か？を自動判定し分岐します
+# Docker内環境からはローカルで実行します
+# Docker外環境からはDocker環境を立ち上げ、そちらで実行するようにします
+# どちらで実行するか強制したい場合は、ここより下にある、remote***やlocal***などの
+# 接頭語がついたターゲットを使用してください
 #
-local-lint: ## ローカル環境下でhtmlをlintにかけます
-	npx textlint -f pretty-error $(SRCS) $(DOCS)
+build: ## smarty templatesからhtmlにコンパイルします(環境は自動判別)
+ifndef CONTAINER_ENV
+	make remotebuild # Docker外でbuildといえばDocker環境へbuildを投げる、localでしたい場合はlocalbuildとすること
+else
+	make localbuild
+endif
+#
+lint: ## latexをLintにかけます(環境は自動判別)
+ifndef CONTAINER_ENV
+	make remotelint  # Docker外でlintといえばDocker環境へlintを投げる、localでしたい場合はlocal-lintとすること
+else
+	make local-lint
+endif
+#
+clean: ## データ整理(環境は自動判別)
+ifndef CONTAINER_ENV
+	make remoteclean # Docker外でcleanといえばDocker環境へbuildを投げる、localでしたい場合はlocalcleanとすること
+else
+	make localclean
+endif
+#
+distclean: ## データ整理(環境は自動判別)
+ifndef CONTAINER_ENV
+	make remotedistclean # Docker外でcleanといえばDocker環境へdistcleanを投げる、localでしたい場合はlocaldistcleanとすること
+else
+	make localdistclean
+endif
+#
+# コンテナ環境下でのビルド関連ターゲット
+#
+remotebuild: ## コンテナ環境にてlatexからpdfにコンパイルします
+	make remoteclean
+	@$(DOCKER) exec -it $(DOCKER_NAME) make localbuild
+#
+remotelint: ## コンテナ環境にてhtmlをLintにかけます
+	@$(DOCKER) exec -it $(DOCKER_NAME) make local-lint
+#
+remoteclean: ## コンテナ上のデータ整理
+	@$(DOCKER) exec -it $(DOCKER_NAME) make localclean
+#
+remotedistclean: ## コンテナ上のデータ整理
+	@$(DOCKER) exec -it $(DOCKER_NAME) make localdistclean
 #
 # ローカルでのビルド関連ターゲット
 #
-localclean: ## ローカル環境の不要ファイルを消す
-	rm -rf  htdocs/* .bash_history; cp src/main/index.html htdocs
+localbuild: ## ローカル環境にてsmarty templatesからhtmlにコンパイルします
+	make localclean
+	php src/php/smarty.php
 #
-localup:
+local-lint: ## ローカル環境下でlatexをlintにかけます
+	npx textlint -f pretty-error README.md $(SRCS) $(DOCS)
+#
+localclean: ## ローカル環境の不要ファイルを消し、再度Up
+	rm -rf  htdocs/* .bash_history smarty/*; cp src/main/index.html htdocs ; ln -s ../src/templates smarty
 	cp -rL src/css htdocs/
 	cp -rL src/images htdocs/
+	cp VERSION.txt  htdocs/
+
+localdistclean: ## ローカル環境の不要ファイルを消す
+	rm -rf  htdocs/* smarty/* .viminfo .bash_history
