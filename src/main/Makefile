@@ -113,13 +113,18 @@ remoteclean: ## コンテナ上のデータ整理
 remotedistclean: ## コンテナ上のデータ整理
 	@$(DOCKER) exec -it $(DOCKER_NAME) make localdistclean
 #
+# github CI環境下でのビルド関連ターゲット
+#
+github-lint: ## github環境下でtextlintにかけます
+	npx textlint -f checkstyle README.md $(SRCS) $(DOCS) | reviewdog -f=checkstyle -reporter=github-pr-review  -fail-level=any
+#
 # ローカルでのビルド関連ターゲット
 #
 localbuild: ## ローカル環境にてsmarty templatesからhtmlにコンパイルします
 	make localclean
 	php src/php/smarty.php
 #
-local-lint: ## ローカル環境下でlatexをlintにかけます
+local-lint: ## ローカル環境下でtextlintにかけます
 	npx textlint -f pretty-error README.md $(SRCS) $(DOCS)
 #
 localclean: ## ローカル環境の不要ファイルを消し、再度Up
